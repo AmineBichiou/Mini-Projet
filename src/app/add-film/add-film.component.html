@@ -1,0 +1,47 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container forget-password">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">
+                                <h2 class="text-center">Movies</h2>
+                                <form >
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            IDFilms<input type="text"[(ngModel)]= "newFilm.idFilm"name="idFilm" class="form-control" placeholder="idFilms">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            NomFilms<input type="text"[(ngModel)]= "newFilm.nomFilm"name="nomFilm" class="form-control" placeholder="NomFilms">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            GenreFilms
+                                            <select type="text" [(ngModel)]= "newIdGenre"name="Genre" class="form-control"placeholder="Genre">
+                                            <option *ngFor="let gen of Genre" [value]="gen.idGenre" >
+                                                {{gen.nomGenre}}
+                                                </option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            RateFilms<input type="number" [(ngModel)]= "newFilm.rateFilm"name="RateFilm" class="form-control"placeholder="RateFilms">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            DateFilms<input type="date" [(ngModel)]= "newFilm.dateCreation"name="dateCreation" class="form-control"placeholder="DateFilms">
+                                        </div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <button type="submit" (click)="addFilm()"class="btn btn-secondary" routerLink="/Film">Ajouter</button>
+                                        </div>
+                                </form></div></div></div></div></div></div>

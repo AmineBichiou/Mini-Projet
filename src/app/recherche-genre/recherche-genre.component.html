@@ -1,0 +1,28 @@
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <label>Genre </label>
+      <select class="form-control form-control-lg" id="idGenre" name="idGenre" [(ngModel)]="idGenre" 
+       (change)="onChange()">        
+        <option *ngFor="let gen of Genre" value="{{gen.idGenre}}">   
+              {{gen.nomGenre}}
+        </option>
+    </select>                     
+</div>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Id</th><th>Nom</th> <th>Rating</th> <th>Date Création</th><th>Genre</th><th>Supprimer</th><th>Modifier</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let Film of Film">
+    <tr >
+    <td>{{Film.idFilm}}</td>
+    <td>{{Film.nomFilm}}</td>
+    <td>{{Film.rateFilm}}</td>
+    <td>{{Film.dateCreation | date:'dd/MM/yyyy'}}</td>
+    <td>{{Film.genre.nomGenre}}</td>
+    <td><a *ngIf="authService.isAdmin()"class="btn btn-secondary" (click)="supprimerFilm(Film)">Supprimer</a></td>
+    <td><a *ngIf="authService.isAdmin()"class="btn btn-secondary" [routerLink]="['/updateFilm',Film.idFilm]">Modifier</a></td>
+    </tr>
+    </tbody>
+    
+    </table>

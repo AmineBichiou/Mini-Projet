@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-genre [Genre]="updatedGenre" 
+        (genreUpdated)= "genreUpdated($event)"
+        [ajout]="ajout"
+        >
+            
+        </app-update-genre>
+        </div>
+        <table class="styled-table">
+    <thead>
+    <tr> <th>Id</th><th>Nom Genre</th><th>Editer </th> </tr>
+    </thead>
+    <tbody *ngFor="let gen of Genre">
+    <tr>
+    <td>{{gen.idGenre}}</td>
+    <td>{{gen.nomGenre}}</td>
+    <td><a *ngIf="authService.isAdmin()"class="btn btn-secondary"  (click)="updateGenre(gen)">Editer</a></td>
+    <!--<td><a *ngIf="authService.isAdmin()"class="btn btn-danger" (click)="supprimerGenre(gen)">delete</a></td>-->
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    

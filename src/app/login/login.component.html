@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+	<div id="login-box">
+		<div class="logo">
+			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+		</div>
+        <div class="alert alert-danger" *ngIf="erreur==1">
+            <strong>login ou mot de passe erronés..</strong>
+            </div>
+		<div class="controls">
+			<input type="text" name="username" placeholder="Username" class="form-control" [(ngModel)]="user.username"/>
+			<input type="password" name="username" placeholder="Password" class="form-control" [(ngModel)]="user.password"/>
+            <button type="button" (click)="onLoggedin()"class="btn btn-default btn-block btn-custom">Login</button>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

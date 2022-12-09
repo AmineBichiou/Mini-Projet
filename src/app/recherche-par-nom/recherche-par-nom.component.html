@@ -1,0 +1,42 @@
+<div class="container">
+    <!--<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Film</label>
+    <input type="text" class="form-control" [(ngModel)]="nomFilm" name="nomFilm" class="form-control">
+    <button type="submit" (click)="rechercherProds()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+    </div>
+    </form>-->
+    <form class="form-inline">
+<div class="form-group mx-sm-3 mb-2 mt-2 ">
+<label>Nom Film en tapant</label>
+<input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+</div>
+</form>
+<!--<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Produit en tapant</label>
+    <input #nomFilm [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+    </div>
+    </form>-->
+    
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Id</th><th>Nom</th> <th>Rating</th> <th>Date Création</th><th>Genre</th><th>Supprimer</th><th>Modifier</th>
+                </tr>
+            </thead>
+            <!--<tbody *ngFor="let Film of Film | searchFilter: searchTerm  ">-->
+                <tbody *ngFor="let Film of Film">
+            <tr >
+            <td>{{Film.idFilm}}</td>
+            <td>{{Film.nomFilm}}</td>
+            <td>{{Film.rateFilm}}</td>
+            <td>{{Film.dateCreation | date:'dd/MM/yyyy'}}</td>
+            <td>{{Film.genre.nomGenre}}</td>
+            <td><a class="btn btn-secondary" >Supprimer</a></td>
+            <td><a class="btn btn-secondary" [routerLink]="['/updateFilm',Film.idFilm]">Modifier</a></td>-
+            </tr>
+            </tbody>
+            
+            </table>
+            

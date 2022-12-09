@@ -1,0 +1,16 @@
+<form>
+    <div [hidden]="ajout">
+    <label>ID Genre</label>
+    <input type="text" [(ngModel)]="Genre.idGenre" name="idGenre" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Genre</label>
+    <input type="text" [(ngModel)]="Genre.nomGenre" name="nomGenre" class="form-control"
+    placeholder="Entrez un nom de Genre">
+    </div>
+    <div class="mt-2">
+        <button type="submit" *ngIf="authService.isAdmin()"[disabled]="!Genre.nomGenre" class="btn btn-secondary"
+        (click)="saveGenre()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+        </button>
+    </div>
+    </form>

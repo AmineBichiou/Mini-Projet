@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<title>Gestion des Films</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-light "style="background-color: rgba(48, 46, 45, 1);">
+<!-- Brand -->
+<a class="navbar-brand" href="#" style="color: white;">List Film</a>
+<!-- Links -->
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" routerLink="Film" style="color: white;">Home</a>
+</li>
+<!-- Dropdown -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color: white;">
+Films
+</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" routerLink="addFilm">AjouterFilm</a>
+<a class="dropdown-item" href="#">ListerFilm</a>
+<a class="dropdown-item" href="/RechercheGenre">RechercheGenre</a>
+<a class="dropdown-item" routerLink="/listeGenre" >Gestion des Genres</a>
+<a class="dropdown-item" routerLink="/rechercheParNom" >Recherche Par Nom</a>
+
+</div>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto" >
+  <li> <a class="nav-link"></a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color: white;">
+{{authService.loggedUser}}
+</a>
+<div class="dropdown-menu">
+  <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a>
+  <a *ngIf="authService.isloggedIn" class="dropdown-item" (click) = "onLogout()">logout</a>
+<a class="dropdown-item" href="#">Profile</a>
+</div>
+</li>
+</ul>
+</nav>
+</body>
+</html>
+<router-outlet></router-outlet>

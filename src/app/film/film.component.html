@@ -1,0 +1,19 @@
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Id</th><th>Nom</th>  <th>Rating</th> <th>Date Création</th><th>Genre</th><th>Supprimer</th><th>Modifier</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let Film of Film">
+    <tr >
+    <td>{{Film.idFilm}}</td>
+    <td>{{Film.nomFilm}}</td>
+    <td>{{Film.rateFilm}}</td>
+    <td>{{Film.dateCreation | date:'dd/MM/yyyy'}}</td>
+    <td>{{Film.genre.nomGenre}}</td>
+    <td><a *ngIf="authService.isAdmin()"class="btn btn-secondary" (click)="supprimerFilm(Film)">Supprimer</a></td>
+    <td><a *ngIf="authService.isAdmin()"class="btn btn-secondary" [routerLink]="['/updateFilm',Film.idFilm]">Modifier</a></td>
+    </tr>
+    </tbody>
+    
+    </table>
